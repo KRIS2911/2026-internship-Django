@@ -6,6 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    news
+    <h1>Recipe :: {{name}}</h1>
+    <h2>time :: {{time}}</h2>
+
+    {% for i in ingrediant %}
+       <h2> {{i}} </h2>
+    {% endfor %}
+
+
+    {% if time <= 2 %}
+        <p>recipe is easy</p>
+        
+        {% else %}
+        <p>recipe is hard</p>
+        
+    {% endif %}
+
 </body>
 </html>

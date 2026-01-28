@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+</head>
+<body style="text-align: center; background-color:yellow;">
+    <h1 style="color: brown; ">{{tname}}</h1>
+    <h2 style="color:rgb(98, 231, 231);">Captain :: {{cap}}
+    {% for j in tplayer %}
+        <h2 style="border: 2px dotted rgb(228, 192, 11);  color: brown;"> player {{forloop.counter}} :: {{j}} </h2>
+    {% endfor %}
+
+    {% if trophy >= 5 %}
+    <p style="color: rgb(233, 148, 37);">{{tname}} is Successfull Team...</p>
+    {% endif %}
+</body>
+</html>

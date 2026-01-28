@@ -17,4 +17,22 @@ def movie(request):
 def show(request):
     return render(request,"show.html")
 def news(request):
-    return render(request,"news.html")
+    ingrediant=["masala","salt"]
+    data={
+        "name":"maggie",
+        "time":2,
+        "ingrediant":ingrediant
+        
+    }
+    return render(request,"news.html",data)
+
+def team(request):
+    tplayer=["Ruturaj","Rachin","Maccullum","Tripathi","Raina","Shivam Dube","MSD","Jadeja","Ashwin","Khalil","Noor"]
+    
+    data={
+        "tname":"Chennai Super Kings",
+        "cap" : "MSD",
+        "trophy" : 5,
+        "tplayer":tplayer
+    }
+    return render(request,"team.html",data)

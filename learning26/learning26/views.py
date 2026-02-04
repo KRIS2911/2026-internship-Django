@@ -36,3 +36,4 @@ def team(request):
         "tplayer":tplayer
     }
     return render(request,"team.html",data)
+

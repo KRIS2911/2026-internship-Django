@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Details</title>
+</head>
+<style>
+    th,td{
+        border: 2px solid black;
+    }
+</style>
+<body>
+    <div class="container">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">std</th>
+      <th scope="col">r_no</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in name %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i}}</td>
+      <td>{{std}}</td>
+      <td>{{r_no}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+</body>
+</html>

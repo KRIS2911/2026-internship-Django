@@ -32,4 +32,6 @@ urlpatterns = [
     
     # adding app urls
     path("student/",include("student.urls")),
+    path("parking/",include("test.urls")),
+    
 ]

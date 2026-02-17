@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+</head>
+<body>
+    <h1>Employee List</h1>
+
+    {% comment %} {{emplist}} {% endcomment %}
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Join Date</th>
+            <th>Post</th>
+        </tr>
+
+        {% for emp in emplist %}
+        <tr>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.join_date}}</td>
+            <td>{{emp.post}}</td>
+        </tr>
+        {% endfor %}
+</body>
+</html>

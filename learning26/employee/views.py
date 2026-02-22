@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import Employee
+from django.http import HttpResponse
+from .models import Employee,Course
+from .forms import EmployeeForm,CourseForm
 
 # Create your views here.
 def employeelist(request):
@@ -32,6 +34,9 @@ def employeefilter(request):
     empin=Employee.objects.filter(name__in=["kris","raj"]).values()
     emprange=Employee.objects.filter(age__range=(22,25)).values()
     
+    emporderA=Employee.objects.order_by("age").values() # asc
+    emporderD=Employee.objects.order_by("-age").values() # desc
+    
     employeef={
         "empname":empname,
         "empid":empid,
@@ -49,5 +54,30 @@ def employeefilter(request):
         "empiendswith":empiendswith,
         "empin":empin,
         "emprange":emprange,
+        "emporderA":emporderA,
+        "emporderD":emporderD,
+        
     } 
     return render(request,'employee/employeefilter.html',{'employeef':employeef})
+
+## create Employee form
+def createEmployeewithForm(request):
+    if request.method == "POST":
+        form=EmployeeForm(request.POST)
+        form.save()
+        return HttpResponse("Successfully Created Employee")
+    else:
+        form=EmployeeForm()
+        return render(request,"employee/createemployeeform.html",{"form":form})
+    
+## create course form 
+
+def createCourse(request):
+    if request.method == "POST":
+        form = CourseForm(request.POST)
+        form.save()
+        return HttpResponse("Course Successfully Created......")
+    
+    else:
+        form = CourseForm()
+        return render(request,"employee/createcourseform.html",{"form":form})

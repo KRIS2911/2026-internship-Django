@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Employee,Course
 from .forms import EmployeeForm,CourseForm
@@ -65,7 +65,7 @@ def createEmployeewithForm(request):
     if request.method == "POST":
         form=EmployeeForm(request.POST)
         form.save()
-        return HttpResponse("Successfully Created Employee")
+        return redirect('employeelist')
     else:
         form=EmployeeForm()
         return render(request,"employee/createemployeeform.html",{"form":form})
@@ -81,3 +81,47 @@ def createCourse(request):
     else:
         form = CourseForm()
         return render(request,"employee/createcourseform.html",{"form":form})
+    
+    
+def deleteemployee(request,id):
+    ## delete from employees where id=1; 
+    print("delete id :",id)
+    # deletedemp=Employee.objects.get(id=id)
+    Employee.objects.get(id=id).delete()
+    # return HttpResponse("Employee Deleted Successfully")
+    return redirect('employeelist')
+    # return render(request,'employee/employeefilter.html',{'deletedemp':deletedemp})
+
+def filteremployee(request):
+    emplist=Employee.objects.filter(age__gte=29)
+    return render(request,'employee/employeelist.html',{'emplist':emplist})
+    
+# it is used to sort the employee list 
+# based on age in ascending or 
+# descending order based on user input  
+# it is based on sort type which is passed as query parameter in url  
+
+def sortedemployee(request):
+    sorttype=request.GET.get("sorttype") # it will get the value from url query parameter
+    if sorttype == "asc":
+        emplist=Employee.objects.order_by("age").values()
+    elif sorttype == "desc":
+        emplist=Employee.objects.order_by("-age").values()
+    else:
+        return HttpResponse("Invalid Sort Type")
+    
+    return render(request,'employee/employeelist.html',{'emplist':emplist})
+
+
+# it is used to sort the employee list in simple way
+
+# def sortedemployee(request,order):
+#     if order == "asc":
+#         emplist=Employee.objects.order_by("age").values()
+#     elif order == "desc":
+#         emplist=Employee.objects.order_by("-age").values()
+#     else:
+#         return HttpResponse("Invalid Sort Type")
+    
+#     return render(request,'employee/employeelist.html',{'emplist':emplist})
+    

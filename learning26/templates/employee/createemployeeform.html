@@ -1,3 +1,5 @@
+<h1>Create Employee</h1>
+<a href="{% url 'employeelist' %}">Employee List</a>
 <form method="POST">
     {% csrf_token %}
     {{form}}

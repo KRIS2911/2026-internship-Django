@@ -7,25 +7,34 @@
 </head>
 <body>
     <h1>Employee List</h1>
-
-    {% comment %} {{emplist}} {% endcomment %}
+    <a href="{% url 'createemployeeform' %}">Add Employee</a><br>
+    <a href="{% url 'filteremployee' %}">Filter</a><br>
+    <a href="{% url 'sortedemployee' %}?sorttype=asc">asc</a><br>
+    <a href="{% url 'sortedemployee' %}?sorttype=desc">desc</a><br> 
+    {% comment %} <a href="{% url 'sortedemployee' 'asc' %}">asc</a><br>
+    <a href="{% url 'sortedemployee' 'desc' %}">desc</a><br> {% endcomment %}
 
     <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Age</th>
             <th>Salary</th>
             <th>Join Date</th>
             <th>Post</th>
+            <th>Action</th>
         </tr>
 
         {% for emp in emplist %}
         <tr>
             <td>{{emp.id}}</td>
             <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
             <td>{{emp.salary}}</td>
             <td>{{emp.join_date}}</td>
             <td>{{emp.post}}</td>
+            {% comment %} <td><a href="{% url 'deleteemployee' %}">Delete</a></td> {% endcomment %}
+            <td><a href="{% url 'deleteemployee' emp.id %}">Delete</a></td>
         </tr>
         {% endfor %}
 </body>

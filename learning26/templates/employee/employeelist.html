@@ -10,7 +10,8 @@
         <a href="{% url 'sortedemployee' %}?sorttype=asc" class="btn btn-link">Sort Age Asc</a>
         <a href="{% url 'sortedemployee' %}?sorttype=desc" class="btn btn-link">Sort Age Desc</a>
     </div>
-
+    
+    <div class="table-wrapper">
     <table>
         <thead>
             <tr>
@@ -42,4 +43,5 @@
             {% endfor %}
         </tbody>
     </table>
+    </div>
 {% endblock content %}

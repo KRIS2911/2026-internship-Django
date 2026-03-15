@@ -11,5 +11,5 @@ urlpatterns = [
     path("filteremployee/",views.filteremployee,name='filteremployee'),
     path("sortedemployee/",views.sortedemployee,name='sortedemployee'),
     # path("sortedemployee/<str:order>",views.sortedemployee,name='sortedemployee'),
-    
+    path("updateemployee/<int:id>",views.updateemployee,name='updateemployee')
 ]

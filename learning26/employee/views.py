@@ -7,7 +7,8 @@ from .forms import EmployeeForm,CourseForm
 def employeelist(request):
     # emplist=Employee.objects.all() ## select * from Employee;
     # emplist=Employee.objects.all().values_list() ## in tuple type
-    emplist=Employee.objects.all().values() ## in dictionary type
+    # emplist=Employee.objects.all().values() ## in dictionary type
+    emplist=Employee.objects.all().order_by('id').values() ## in asc order
     
     # print(emplist)
     return render(request,'employee/employeelist.html',{'emplist':emplist})
@@ -82,14 +83,14 @@ def createCourse(request):
         form = CourseForm()
         return render(request,"employee/createcourseform.html",{"form":form})
     
-    
+# delete Operation
 def deleteemployee(request,id):
     ## delete from employees where id=1; 
     print("delete id :",id)
     # deletedemp=Employee.objects.get(id=id)
-    Employee.objects.get(id=id).delete()
-    # return HttpResponse("Employee Deleted Successfully")
-    return redirect('employeelist')
+    # Employee.objects.get(id=id).delete()
+    return HttpResponse("First uncomment delete query")
+    # return redirect('employeelist')
     # return render(request,'employee/employeefilter.html',{'deletedemp':deletedemp})
 
 def filteremployee(request):
@@ -124,4 +125,19 @@ def sortedemployee(request):
 #         return HttpResponse("Invalid Sort Type")
     
 #     return render(request,'employee/employeelist.html',{'emplist':emplist})
+    
+
+## Update Employee 
+
+def updateemployee(request,id):
+    # print("Updated ID :",id)
+    employee=Employee.objects.get(id=id)
+    if request.method=="POST":
+        form=EmployeeForm(request.POST,instance=employee) # instance is use for get data in form, did not get blank form
+        form.save()
+        return redirect('employeelist')
+    else:
+        form=EmployeeForm(instance=employee)
+        print("Updated Data.....",request.POST)
+        return render(request,'employee/updateemployee.html',{'form':form})
     

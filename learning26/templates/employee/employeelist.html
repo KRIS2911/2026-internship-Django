@@ -34,7 +34,10 @@
             <td>{{emp.join_date}}</td>
             <td>{{emp.post}}</td>
             {% comment %} <td><a href="{% url 'deleteemployee' %}">Delete</a></td> {% endcomment %}
-            <td><a href="{% url 'deleteemployee' emp.id %}">Delete</a></td>
+            <td>
+            <a href="{% url 'deleteemployee' emp.id %}">Delete</a>
+            <a href="{% url 'updateemployee' emp.id %}">Update</a>
+            </td>
         </tr>
         {% endfor %}
 </body>

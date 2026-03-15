@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="services-grid">
+
+{% for service in services %}
+    <div class="service-card">
+        <div class="card-image">
+            <img src="https://via.placeholder.com/400x220" alt="Service Image">
+        </div>
+        <div class="card-content">
+            <span class="service-category">{{ service.category_id.categoryname }}</span>
+            <h3 class="service-title">{{ service.servicename }}</h3>
+            <p class="service-description">{{ service.servicedescription }}</p>
+            <a href="{% url 'deleteservice' id=service.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock content %}

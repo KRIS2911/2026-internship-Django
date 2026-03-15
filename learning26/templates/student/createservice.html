@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create Service{% endblock %}
+
+{% block content %}
+    <h1>Create Service</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            {{ form.servicename | as_crispy_field }}
+            {{ form.servicedescription | as_crispy_field }}
+            {{ form.servicestatus | as_crispy_field }}
+            {{ form.category_id | as_crispy_field }}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

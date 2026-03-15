@@ -88,9 +88,9 @@ def deleteemployee(request,id):
     ## delete from employees where id=1; 
     print("delete id :",id)
     # deletedemp=Employee.objects.get(id=id)
-    # Employee.objects.get(id=id).delete()
-    return HttpResponse("First uncomment delete query")
-    # return redirect('employeelist')
+    Employee.objects.get(id=id).delete()
+    # return HttpResponse("First uncomment delete query")
+    return redirect('employeelist')
     # return render(request,'employee/employeefilter.html',{'deletedemp':deletedemp})
 
 def filteremployee(request):
@@ -105,13 +105,14 @@ def filteremployee(request):
 def sortedemployee(request, order=None):
     sorttype = order or request.GET.get("sorttype") # allow either path or query parameter
     if sorttype == "asc":
-        emplist=Employee.objects.order_by("age").values()
+        emplist=Employee.objects.order_by("salary").values()
+        return render(request,'employee/employeelist.html',{'emplist':emplist})
     elif sorttype == "desc":
-        emplist=Employee.objects.order_by("-age").values()
+        emplist=Employee.objects.order_by("-salary").values()
+        return render(request,'employee/employeelist.html',{'emplist':emplist})
     else:
         return redirect("employeelist")
     
-    return render(request,'employee/employeelist.html',{'emplist':emplist})
 
 
 # it is used to sort the employee list in simple way

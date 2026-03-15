@@ -102,14 +102,14 @@ def filteremployee(request):
 # descending order based on user input  
 # it is based on sort type which is passed as query parameter in url  
 
-def sortedemployee(request):
-    sorttype=request.GET.get("sorttype") # it will get the value from url query parameter
+def sortedemployee(request, order=None):
+    sorttype = order or request.GET.get("sorttype") # allow either path or query parameter
     if sorttype == "asc":
         emplist=Employee.objects.order_by("age").values()
     elif sorttype == "desc":
         emplist=Employee.objects.order_by("-age").values()
     else:
-        return HttpResponse("Invalid Sort Type")
+        return redirect("employeelist")
     
     return render(request,'employee/employeelist.html',{'emplist':emplist})
 

@@ -1,0 +1,255 @@
+/* Reset default browser spacing */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Make page full height */
+html, body{
+    min-height:100%;
+    margin:0;
+}
+
+/* Page layout */
+body{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    background:#e6e6e6;
+}
+
+/* Navbar */
+nav{
+    background:#333;
+    padding:15px 0;
+}
+
+/* Navbar container */
+.navbar{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Logo */
+.logo{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* Navigation links */
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    padding:6px 10px;
+    border-radius:4px;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    background:#555;
+}
+
+/* Footer */
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:auto;
+}
+/* Main container */
+.container{
+    width:800px;
+    margin:60px auto;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h1{
+    margin-bottom:15px;
+}
+
+.page-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+a.btn,
+button.btn,
+input.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 16px;
+    border:none;
+    border-radius:6px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:background 0.2s ease, color 0.2s ease;
+}
+
+a.btn:visited,
+a.btn:hover,
+a.btn:active{
+    text-decoration:none;
+}
+
+a.btn-primary,
+input.btn-primary,
+button.btn-primary{
+    background:#333;
+    color:white;
+}
+
+a.btn-primary:visited{
+    color:white;
+}
+
+a.btn-primary:hover,
+input.btn-primary:hover,
+button.btn-primary:hover{
+    background:#555;
+    color:white;
+}
+
+a.btn-secondary,
+input.btn-secondary,
+button.btn-secondary{
+    background:#ececec;
+    color:#222;
+}
+
+a.btn-secondary:visited{
+    color:#222;
+}
+
+a.btn-secondary:hover,
+input.btn-secondary:hover,
+button.btn-secondary:hover{
+    background:#dcdcdc;
+    color:#222;
+}
+
+a.btn-danger,
+input.btn-danger,
+button.btn-danger{
+    background:#ffe5e5;
+    color:#c62828;
+}
+
+a.btn-danger:visited{
+    color:#c62828;
+}
+
+a.btn-danger:hover,
+input.btn-danger:hover,
+button.btn-danger:hover{
+    background:#ffd4d4;
+    color:#c62828;
+}
+
+a.btn-link,
+input.btn-link,
+button.btn-link{
+    background:#e7f1ff;
+    color:#1565c0;
+}
+
+a.btn-link:visited{
+    color:#1565c0;
+}
+
+a.btn-link:hover,
+input.btn-link:hover,
+button.btn-link:hover{
+    background:#d7e8ff;
+    color:#1565c0;
+}
+
+.form-card{
+    max-width:520px;
+}
+
+.form-actions{
+    display:flex;
+    gap:12px;
+    margin-top:10px;
+}
+
+
+/* Form fields */
+form input,
+form select,
+form textarea{
+    width:100%;
+    padding:8px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border:1px solid #999;
+    border-radius:3px;
+}
+
+/* Submit button */
+input[type="submit"]{
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* Table Styling */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table thead{
+    background:#333;
+    color:white;
+}
+
+table th, table td{
+    padding:12px;
+    text-align:center;
+}
+
+table tbody tr{
+    border-bottom:1px solid #ddd;
+}
+
+table tbody tr:nth-child(even){
+    background: #f7f7f7;
+}
+
+table tbody tr:hover{
+    background: #ececec;
+}
+
+/* Action links */
+
+.table-actions{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    align-items:center;
+}

@@ -10,6 +10,6 @@ urlpatterns = [
     path("deleteemployee/<int:id>",views.deleteemployee,name='deleteemployee'),
     path("filteremployee/",views.filteremployee,name='filteremployee'),
     path("sortedemployee/",views.sortedemployee,name='sortedemployee'),
-    # path("sortedemployee/<str:order>",views.sortedemployee,name='sortedemployee'),
+    path("sortedemployee/<str:order>/",views.sortedemployee,name='sortedemployee_by_order'),
     path("updateemployee/<int:id>",views.updateemployee,name='updateemployee')
 ]
